@@ -26,3 +26,7 @@ variable "TAG_PREFIX" {
 variable "PATH_TO_WEBSERVER_PUBLIC_KEY" {
   type = string
 }
+
+variable "CD_DEPLOYMENT_GROUP" {
+  type = string
+}
