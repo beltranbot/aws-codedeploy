@@ -8,9 +8,6 @@ on:
     branches:
       - staging
 
-env:
-  S3_BUCKET_NAME: "${{secrets.S3_BUCKET_NAME}}"
-
 jobs:
   buildAndTest:
     name: CI Pipeline
@@ -37,7 +34,8 @@ jobs:
   deploy:
     name: CD Pipeline
     runs-on: ubuntu-latest
-    environment: staging
+    env:
+      S3_BUCKET_NAME: "${{ secrets.S3_BUCKET_NAME }}"
     strategy:
       matrix:
         python-version: [3.8]
