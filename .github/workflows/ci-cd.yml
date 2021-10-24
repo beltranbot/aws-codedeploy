@@ -34,15 +34,13 @@ jobs:
   deploy:
     name: CD Pipeline
     runs-on: ubuntu-latest
-    env:
-      S3_BUCKET_NAME: "${{ secrets.S3_BUCKET_NAME }}"
     strategy:
       matrix:
         python-version: [3.8]
         node-version: ['14.x']
         appname: ['aws-codedeploy']
         deploy-group: ['staging']
-        s3-bucket: ['${{ env.S3_BUCKET_NAME }}']
+        s3-bucket: ['cbeltran20211023']
         s3-filename: ['staging-aws-codedeploy-${{ github.sha }}']
 
     needs: buildAndTest
