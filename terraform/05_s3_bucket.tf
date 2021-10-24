@@ -2,6 +2,8 @@ resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.BUCKET_NAME
   acl    = "private"
 
+  force_destroy = true
+
   tags = {
     Name        = "${var.TAG_PREFIX}-s3-bucket"
     Environment = "Dev"
